@@ -130,6 +130,7 @@ namespace RealPF
                 foreach (ParticleFilter pf1 in pflist)
                 {
                     pf1.update();
+            
                 }
 
             }
@@ -237,7 +238,7 @@ namespace RealPF
         { 
             
             NUMBER_OF_ROBOTS = 2;
-            NUMBER_OF_SHARKS = 2;
+            NUMBER_OF_SHARKS = 1;
             NUMBER_OF_PARTICLEFILTERS = NUMBER_OF_ROBOTS * NUMBER_OF_SHARKS;
             create_and_initialize_sharks();
             create_and_initialize_robots();
@@ -248,6 +249,7 @@ namespace RealPF
             create_real_range_list();
             while (true)
             {
+                particleFilterList[i].calculate_entropy();
                 update_sharks();
                 update_robots();
                 if (get_simulation())
